@@ -1,0 +1,71 @@
+body {
+    background-color: #212733;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.lightsaber__light {
+    width: 9px;
+    height: 230px;
+    border-radius: 5px 5px 0 0;
+    margin: 0 auto;
+    background: rgb(135, 220, 90);
+    background: linear-gradient(
+        to right, 
+        rgb(135, 220, 90) 0%, 
+        rgb(254, 254, 254) 30%, 
+        rgb(254, 254, 254) 50%, 
+        rgb(254, 254, 254) 70%, 
+        rgb(135, 220, 90) 100%
+      );
+}
+
+.lightsaber__block {
+    position: relative;
+    background: red;
+    width: 20px;
+    height: 60px;
+}
+
+.lightsaber__block .lightsaver__label {
+    display: inline-block;
+    width: 20px;
+    height: 60px;
+    background-color: #EBE9EB;
+    z-index: 100;
+    position: relative;
+}
+
+.lightsaber__block .lightsaber__input {
+    display: none;
+}
+
+.lightsaber__input:checked {
+    display: block;
+}
+
+.lightsaber__block:before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    border-radius: 7px;
+    background-color: #817F80;
+    position: absolute;
+    z-index: 5;
+    top: -7px;
+}
+
+.lightsaber__block:after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    border-radius: 7px;
+    background-color: #817F80;
+    position: absolute;
+    z-index: 5;
+    bottom: -7px;
+}
