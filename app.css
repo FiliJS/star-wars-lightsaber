@@ -1,3 +1,8 @@
+:root {
+    --gray-light: #EBE9EB;
+    --gray-dark: #817F80;
+}
+
 body {
     background-color: #212733;
     margin: 0;
@@ -8,64 +13,106 @@ body {
     align-items: center;
 }
 
-.lightsaber__light {
-    width: 9px;
-    height: 230px;
-    border-radius: 5px 5px 0 0;
+.lightsaberList {
+    display: flex;
+    justify-content: center;
+}
+
+.lightsaber {
+    position: relative;
+    background-color: var(--gray-light);
+    width: 20px;
+    height: 50px;
+    margin: 0 20px;
+}
+
+.lightsaber::before {
+    content: "";
+    position: absolute;
+    background-color: var(--gray-dark);
+    border-radius: 7px;
+    width: 20px;
+    height: 20px;
+    top: -7px;
+    z-index: -1;
+}
+
+.lightsaber::after {
+    content: "";
+    position: absolute;
+    background-color: var(--gray-dark);
+    border-radius: 7px;
+    width: 20px;
+    height: 20px;
+    bottom: -7px;
+    z-index: -1;
+}
+
+.lightsaber .lightsaber__light {
+    width: 12px;
+    border-radius: 10px 10px 0 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
     margin: 0 auto;
+    transition: 0.3s;
+}
+
+.lightsaber .yoda {
     background: rgb(135, 220, 90);
     background: linear-gradient(
-        to right, 
-        rgb(135, 220, 90) 0%, 
-        rgb(254, 254, 254) 30%, 
-        rgb(254, 254, 254) 50%, 
-        rgb(254, 254, 254) 70%, 
-        rgb(135, 220, 90) 100%
-      );
+    to right, 
+    rgb(135, 220, 90) 0%, 
+    rgb(254, 254, 254) 30%, 
+    rgb(254, 254, 254) 50%, 
+    rgb(254, 254, 254) 70%, 
+    rgb(135, 220, 90) 100%
+  );
 }
 
-.lightsaber__block {
-    position: relative;
-    background: red;
-    width: 20px;
-    height: 60px;
+.lightsaber .luke {
+    background: #344DF9;
+    background: linear-gradient(
+    to right, 
+    #344DF9 0%, 
+    rgba(254, 254, 254, 1) 30%, 
+    rgba(254, 254, 254, 1) 47%, 
+    rgba(254, 254, 254, 1) 71%, 
+    #344DF9 100%
+  );
 }
 
-.lightsaber__block .lightsaver__label {
+.lightsaber .vader {
+    background: rgb(229, 17, 21);
+    background: linear-gradient(
+    to right, 
+    rgba(229, 17, 21, 1) 0%, 
+    rgba(254, 254, 254, 1) 30%, 
+    rgba(254, 254, 254, 1) 47%, 
+    rgba(254, 254, 254, 1) 71%, 
+    rgba(229, 17, 21, 1) 100%
+  );
+}
+
+.lightsaber .lightsaver__label {
     display: inline-block;
-    width: 20px;
-    height: 60px;
-    background-color: #EBE9EB;
-    z-index: 100;
-    position: relative;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    position: absolute;
 }
 
-.lightsaber__block .lightsaber__input {
+.lightsaber .lightsaber__input {
     display: none;
 }
 
-.lightsaber__input:checked {
-    display: block;
+.lightsaber .lightsaber__input:checked + .lightsaber__light{
+    top: -250px;
+    height: 250px;
 }
 
-.lightsaber__block:before {
-    content: "";
-    width: 20px;
-    height: 20px;
-    border-radius: 7px;
-    background-color: #817F80;
-    position: absolute;
-    z-index: 5;
-    top: -7px;
-}
-
-.lightsaber__block:after {
-    content: "";
-    width: 20px;
-    height: 20px;
-    border-radius: 7px;
-    background-color: #817F80;
-    position: absolute;
-    z-index: 5;
-    bottom: -7px;
+.lightsaber .lightsaber__input:not(:checked) + .lightsaber__light {
+    top: 0;
+    height: 0;
 }
